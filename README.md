@@ -12,7 +12,31 @@ This repo provides a set of tools to parse the self-trigger tool data, and produ
 ---
 
 ## Procedure
-Run final_analysis.py in a conda environment with the required modules listed below. By default, the program will look for uHTR data folders in a subdirectory of the script titled "data". Make sure to create and place any data there for the program to work.
+Make the proper environment with this command:
+
+```
+source makeEnv.sh <some_path_where_you_want_the_env>/
+```
+
+Set the proper path:
+
+```
+export PYTHONPATH=<some_path_where_you_want_the_env>:$PYTHONPATH
+```
+
+Then run the code:
+
+```
+python3 final_analysis.py 
+```
+
+On lxplus, the environment is already made, so just set the proper path:
+
+```
+export PYTHONPATH=/eos/cms/store/group/dpg_bril/comm_bril/bhm/bhm-gui-setup:$PYTHONPATH
+```
+
+By default, the program will look for uHTR data folders in a subdirectory of the script titled "data". Make sure to create and place any data there for the program to work.
 
 This framework requires the best estimate for the ADC, TDC cuts.  If the plots look incorrect, revisit the ADC & TDC cuts that are set. The TDC estimate needs to be within +/- 2.5ns of the peak
 - Timing of the Beam Halo Events could change for various reasons
@@ -35,7 +59,7 @@ The code needs special care with data that is acquired during specials scans. I 
 
 
 ## Python Packages Required
-```bash
+```
 pandas                     1.5.1
 numpy                      1.24.4
 matplotlib                 3.5.3
@@ -43,3 +67,4 @@ scienceplots               2.0.1
 scipy                      1.9.1
 seaborn                    0.12.2
 ```
+
